@@ -5,9 +5,10 @@ import { schemaTypes } from "./schemas";
 import { myTheme } from "./themes";
 import StudioNavbar from "./components/StudioNavbar";
 import Logo from "./components/Logo";
+import { getDefaultDocumentNode } from "./structure";
 
-const projectId: any = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset: any = process.env.NEXT_PUBLIC_SANITY_DATASET;
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig(<WorkspaceOptions>{
   basePath: "/studio",
@@ -15,7 +16,9 @@ export default defineConfig(<WorkspaceOptions>{
   title: "Blog-NextJS-TS",
   projectId,
   dataset,
-  plugins: [deskTool(), visionTool()],
+  plugins: [deskTool({
+    defaultDocumentNode: getDefaultDocumentNode
+  }), visionTool()],
   schema: {
     types: schemaTypes,
   },

@@ -6,6 +6,7 @@ const props = {
   "--gray": "#18181b",
   "--blue": "#8cd3ff",
   "--purple": "#713bdb",
+  "--lightPurple": "#CBB7F2",
   "--red": "#db4427",
   "--yellow": "#f4b400",
   "--green": "#0f9d58",
@@ -19,9 +20,8 @@ export const myTheme = buildLegacyTheme({
   "--component-text-color": props["--white"],
   "--brand-primary": props["--purple"],
 
-
   "--default-button-color": props["--gray"],
-  "--default-button-primary-color": props["--purple"],
+  "--default-button-primary-color": props["--lightPurple"],
   "--default-button-success-color": props["--green"],
   "--default-button-warning-color": props["--yellow"],
   "--default-button-danger-color": props["--red"],
@@ -34,5 +34,5 @@ export const myTheme = buildLegacyTheme({
   "--main-navigation-color": props["--gray"],
   "--main-navigation-color--inverted": props["--white"],
 
-  "--focus-color": props["--purple"],
+  "--focus-color": props["--lightPurple"],
 });
