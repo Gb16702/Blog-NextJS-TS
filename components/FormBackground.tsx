@@ -1,26 +1,23 @@
-import Banner from "./UI/auth/Banner";
+"use client";
 
-export default function FormBackground({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import Banner from "./UI/auth/AuthBanner";
+import { usePathname } from "next/navigation";
+import formTitle from "./UI/auth/foreGround/text";
+
+export default function FormBackground({children}: {children: React.ReactNode}) {
+  const path = usePathname();
+
   return (
     <div className="h-screen w-screen flex items-center justify-center relative bg-[#fafafa]">
+
       <Banner />
-      <div className="w-[570px] bg-white mx-auto h-[620px] rounded-xl px-10 py-8 relative drop-shadow-sm">
-        <h2 className=" text-[#6F75F5] font-semibold text-2xl  rounded-sm tracking-[1.1px] ">
-          Inscrivez-vous
-        </h2>
+      <div className="w-[560px] bg-white mx-auto h-[620px] rounded-xl px-10 py-[27px] relative drop-shadow-sm">
+        {formTitle({ children: path?.includes("inscription") ? "Inscription" : "Connexion" })}
         <h5 className="mt-2 text-zinc-600/60 text-[15.1px]">
-          Rejoignez-nous en quelques clics
-        </h5>
+          {path?.includes("inscription") ? "Inscrivez-vous en quelques clics" : "Entrez vos informations de connexion"}</h5>
         <form className="">{children}</form>
-        <small className="text-zinc-400 relative top-5 block">
-          En vous inscrivant, vous acceptez nos conditions et
-          politique de confidentialité.
-        </small>
       </div>
+
     </div>
   );
 }

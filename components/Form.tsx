@@ -1,3 +1,7 @@
+"use client";
+
+import React from "react";
+
 type FormValues = {
   firstName: string;
   lastName: string;
@@ -69,7 +73,7 @@ export function PasswordConfirm({
   );
 }
 
-export function SubmitButton() {
+export function SubmitButton({children} : {children: React.ReactNode}) {
   return (
     <div
       className="flex flex-col bg-[#6F75F5]
@@ -77,7 +81,7 @@ export function SubmitButton() {
       <button
         type="submit"
         className="text-white px-5 py-2 rounded-lg h-12">
-        Soumettre
+        {children}
       </button>
     </div>
   );

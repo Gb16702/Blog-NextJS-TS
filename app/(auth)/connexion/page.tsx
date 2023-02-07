@@ -14,32 +14,25 @@ import {
   SubmitButton,
 } from "../../../components/Form";
 
-export default function Inscription() {
+import formTitle from "../../../components/UI/auth/foreGround/text";
+
+export default function Connexion() {
   return (
     <FormBackground>
       <div className="mt-10 w-full">
-        <div className="flex space-x-4">
-          <FirstName firstName="" />
-          <LastName lastName="" />
-        </div>
         <EmailAddress email="" />
         <Password password="" />
-        <PasswordConfirm passwordConfirm="" />
-        <SubmitButton>S'inscrire</SubmitButton>
+        <SubmitButton>Se connecter</SubmitButton>
       </div>
       <div className="w-full flex items-center justify-center mt-6 space-x-4">
         <GithubIcon />
         <GoogleIcon />
       </div>
       <small className="text-zinc-400 w-full text-center block mt-7">
-        Vous avez déjà un compte ? Connectez-vous{" "}
-        <Link href="./connexion" className="text-[#6F75F5]">
+        Pas encore de compte ? Inscrivez-vous{" "}
+        <Link href="./inscription" className="text-[#6F75F5]">
           ici
         </Link>
-      </small>
-      <small className="text-zinc-400 relative top-5 block">
-        En vous inscrivant, vous acceptez nos conditions et politique
-        des données
       </small>
     </FormBackground>
   );
