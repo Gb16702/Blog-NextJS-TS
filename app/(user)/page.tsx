@@ -40,17 +40,3 @@ export default async function HomePage() {
     </div>
   );
 }
-
-// import { previewData } from "next/headers";
-
-// export default function HomePage() {
-// if(previewData()) {
-//     return (
-//         <div>Preview mode"</div>
-//     )
-// }
-
-// return (
-//     <h1>Not preview mode</h1>
-// )
-// }

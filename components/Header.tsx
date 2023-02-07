@@ -3,21 +3,20 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <>
-      <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5">
-        <div className="flex items-center space-x-2">
-          <Link href="/">
-            <Image
-              width={50}
-              height={50}
-              alt="Logo"
-              className="rounded-full"
-              src=""
-            />
-          </Link>
+    <header className=" items-center justify-between space-x-2 px-10 fixed top-0 left-0 right-0 h-14">
+      <div className="flex items-center space-x-2 max-w-7xl mx-auto bg-[#fff] h-full relative">
+        {/* <Link href="/">
+          <Image
+            width={50}
+            height={50}
+            alt="Logo"
+            className="rounded-full"
+            src=""
+          />
+        </Link> */}
         <h1>Web-mastery</h1>
-        </div>
-      </header>
-    </>
+        <Link href="/inscription">S'authentifier</Link>
+      </div>
+    </header>
   );
 }
