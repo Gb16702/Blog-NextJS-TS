@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.formInput {
+  @apply bg-transparent h-12 shadow-sm text-slate-500/70 placeholder-slate-500/70 outline-none  text-[15px] flex flex-col border border-[#829cea3e] opacity-100 w-full rounded-lg px-3 mt-5 transition duration-500 focus:border-[#607bd4] focus:text-[#607bd4] focus:placeholder:text-[#607bd4];
+}

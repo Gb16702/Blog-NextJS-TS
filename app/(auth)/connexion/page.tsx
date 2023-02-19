@@ -7,14 +7,10 @@ import {
 import FormBackground from "../../../components/FormBackground";
 import {
   EmailAddress,
-  FirstName,
-  LastName,
   Password,
-  PasswordConfirm,
   SubmitButton,
 } from "../../../components/Form";
 
-import formTitle from "../../../components/UI/auth/foreGround/text";
 
 export default function Connexion() {
   return (
@@ -22,18 +18,17 @@ export default function Connexion() {
       <div className="mt-10 w-full">
         <EmailAddress email="" />
         <Password password="" />
+        <Link
+          href=""
+          className="text-[12.7px] text-slate-500/70 w-full hover:cursor-pointer flex items-center justify-center relative top-5">
+          Vous avez oublié votre mot de passe ?
+        </Link>
         <SubmitButton>Se connecter</SubmitButton>
       </div>
       <div className="w-full flex items-center justify-center mt-6 space-x-4">
         <GithubIcon />
         <GoogleIcon />
       </div>
-      <small className="text-zinc-400 w-full text-center block mt-7">
-        Pas encore de compte ? Inscrivez-vous{" "}
-        <Link href="./inscription" className="text-[#6F75F5]">
-          ici
-        </Link>
-      </small>
     </FormBackground>
   );
 }
