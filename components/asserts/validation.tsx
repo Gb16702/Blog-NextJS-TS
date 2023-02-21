@@ -5,10 +5,10 @@
  * component.
  */
 
-
-const requiredErrorMessage = "Ce champs est obligatoire"
-const namePattern = /^[a-zA-Z\-]+$/
-const emailPattern =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+const requiredErrorMessage = "Ce champs est obligatoire";
+const namePattern = /^[a-zA-Z\-]+$/;
+const emailPattern =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const formValidations: Asserts = {
   name: {
@@ -20,16 +20,17 @@ export const formValidations: Asserts = {
       minLength: {
         value: 5,
         message: (minLength: number) =>
-          `Le prénom doit contenir au moins ${minLength} caractères`,
+          `Ce champs doit faire minimum ${minLength} caractères`,
       },
       maxLength: {
         value: 25,
         message: (maxLength: number) =>
-          `Le prénom doit contenir au plus ${maxLength} caractères`,
+          `Ce champs doit faire maximum ${maxLength} caractères`,
       },
       pattern: {
         value: namePattern,
-        message: "Le prénom ne doit contenir que des lettres",
+        message:
+          "Ce champs ne doit contenir que des lettres et tirets",
       },
     },
     lastName: {
@@ -40,16 +41,16 @@ export const formValidations: Asserts = {
       minLength: {
         value: 3,
         message: (minLength: number) =>
-          `Le prénom doit contenir au moins ${minLength} caractères`,
+          `Ce champs doit faire minimum ${minLength} caractères`,
       },
       maxLength: {
         value: 25,
         message: (maxLength: number) =>
-          `Le nom doit contenir au plus ${maxLength} caractères`,
+          `Ce champs doit faire maximum ${maxLength} caractères`,
       },
       pattern: {
         value: namePattern,
-        message: "Le prénom ne doit contenir que des lettres",
+        message: "Ce champs ne doit contenir que des lettres",
       },
     },
   },
@@ -59,9 +60,8 @@ export const formValidations: Asserts = {
       message: requiredErrorMessage,
     },
     pattern: {
-      value:
-      emailPattern,
-      message: "Adresse email invalide",
+      value: emailPattern,
+      message: "Le format d'adresse mail est incorrect",
     },
   },
   passwords: {
@@ -72,13 +72,13 @@ export const formValidations: Asserts = {
       },
       minLength: {
         value: 6,
-        message:
-          "Le mot de passe doit contenir au moins 6 caractères",
+        message: (minLength: number) =>
+          `Ce champs doit faire minimum ${minLength} caractères`,
       },
       maxLength: {
         value: 25,
-        message:
-          "Le mot de passe doit contenir au plus 25 caractères",
+        message: (maxLength: number) =>
+          `Ce champs doit faire maximum ${maxLength} caractères`,
       },
     },
     passwordConfirm: {
@@ -88,13 +88,13 @@ export const formValidations: Asserts = {
       },
       minLength: {
         value: 6,
-        message:
-          "Le mot de passe doit contenir au moins 6 caractères",
+        message: (minLength: number) =>
+          `Ce champs doit faire minimum ${minLength} caractères`,
       },
       maxLength: {
         value: 25,
-        message:
-          "Le mot de passe doit contenir au plus 25 caractères",
+        message: (maxLength: number) =>
+          `Ce champs doit faire maximum ${maxLength} caractères`,
       },
     },
   },
@@ -105,11 +105,13 @@ export const formValidations: Asserts = {
     },
     minLength: {
       value: 6,
-      message: "Le message doit contenir au moins 6 caractères",
+      message: (minLength: number) =>
+        `Ce champs doit faire minimum ${minLength} caractères`,
     },
     maxLength: {
       value: 500,
-      message: "Le message doit contenir au plus 500 caractères",
+      message: (maxLength: number) =>
+        `Ce champs doit faire maximum ${maxLength} caractères`,
     },
   },
 };

@@ -63,11 +63,11 @@ interface Asserts {
       };
       minLength: {
         value: number;
-        message: string;
+        message: (minLength:number) => string;
       };
       maxLength: {
         value: number;
-        message: string;
+        message: (maxLength:number) => string;
       };
     };
     passwordConfirm: {
@@ -77,12 +77,13 @@ interface Asserts {
       };
       minLength: {
         value: number;
-        message: string;
+        message: (minLength:number) => string;
       };
       maxLength: {
         value: number;
-        message: string;
+        message: (maxLength:number) => string;
       };
+      validate :(value: string, options: any) =>string | true
     };
   }
   interface TextAreaValidation {
@@ -92,10 +93,10 @@ interface Asserts {
     };
     minLength: {
       value: number;
-      message: string;
+      message: (minLength: number) => string;
     };
     maxLength: {
       value: number;
-      message: string;
+      message: (maxLength: number) => string;
     };
   }
