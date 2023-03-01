@@ -83,7 +83,6 @@ interface Asserts {
         value: number;
         message: (maxLength:number) => string;
       };
-      validate :(value: string, options: any) =>string | true
     };
   }
   interface TextAreaValidation {

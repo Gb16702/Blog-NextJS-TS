@@ -18,7 +18,7 @@ export const formValidations: Asserts = {
         message: requiredErrorMessage,
       },
       minLength: {
-        value: 5,
+        value: 2,
         message: (minLength: number) =>
           `Ce champs doit faire minimum ${minLength} caractères`,
       },
@@ -39,7 +39,7 @@ export const formValidations: Asserts = {
         message: requiredErrorMessage,
       },
       minLength: {
-        value: 3,
+        value: 2,
         message: (minLength: number) =>
           `Ce champs doit faire minimum ${minLength} caractères`,
       },

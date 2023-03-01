@@ -26,8 +26,8 @@ export default function FormBackground({
   children: React.ReactNode;
 }) {
   type FormValues = {
-    firstName: string;
-    lastName: string;
+    firstname: string;
+    lastname: string;
     email: string;
     password: string;
     passwordConfirm: string;
@@ -35,16 +35,31 @@ export default function FormBackground({
 
   const path = usePathname();
 
-  const { register, handleSubmit, setValue, watch, formState: { errors }} = useForm<FormValues>({ mode: "onBlur" });
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm<FormValues>({ mode: "onBlur" });
 
-  const onSubmit: SubmitHandler<FormValues> = async ({firstName, lastName, email, password}) => {
-    console.log(firstName, lastName, email, password);
-    const call = await fetch('http://localhost:3000/api/auth/inscriptionAPI', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+  const onSubmit: SubmitHandler<FormValues> = async ({
+    firstname,
+    lastname,
+    email,
+    password,
+  }) => {
+    console.log(firstname, lastname, email, password);
+    const call = await fetch(
+      "http://localhost:3000/api/auth/inscriptionAPI",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({firstname, lastname, email, password}),
       }
-    })
+    );
   };
 
   const handleClick = () => {
@@ -55,7 +70,7 @@ export default function FormBackground({
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleTogglePassword = () => setShowPassword(!showPassword)
+  const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const hasError = Object.values(errors).some((error) => error);
 
@@ -91,9 +106,9 @@ export default function FormBackground({
                 placeholder="Votre prénom"
                 id="firstName"
                 className={
-                  errors.firstName ? "triggeredOnError" : "formInput"
+                  errors.firstname ? "triggeredOnError" : "formInput"
                 }
-                {...register("firstName", {
+                {...register("firstname", {
                   required: {
                     value: true,
                     message:
@@ -123,9 +138,9 @@ export default function FormBackground({
                   },
                 })}
               />
-              {errors.firstName && (
+              {errors.firstname && (
                 <small className="text-red-400 text-[12px]">
-                  {errors.firstName.message}
+                  {errors.firstname.message}
                 </small>
               )}
             </div>
@@ -135,9 +150,9 @@ export default function FormBackground({
                 placeholder="Votre nom"
                 id="lastName"
                 className={
-                  errors.lastName ? "triggeredOnError" : "formInput"
+                  errors.lastname ? "triggeredOnError" : "formInput"
                 }
-                {...register("lastName", {
+                {...register("lastname", {
                   required: {
                     value: true,
                     message:
@@ -161,9 +176,9 @@ export default function FormBackground({
                   },
                 })}
               />
-              {errors.lastName && (
+              {errors.lastname && (
                 <small className="text-red-400 text-[12px]">
-                  {errors.lastName.message}
+                  {errors.lastname.message}
                 </small>
               )}
             </div>
@@ -310,13 +325,13 @@ export default function FormBackground({
             <small className="text-red-400 text-[12px]">
               {errors.passwordConfirm.message}
             </small>
-          ) :
-          passwordWatch !== passwordConfirmWatch && (
-            <small className="text-red-400 text-[12px]">
-              Les mots de passe ne correspondent pas
-            </small>
-          )
-          }
+          ) : (
+            passwordWatch !== passwordConfirmWatch && (
+              <small className="text-red-400 text-[12px]">
+                Les mots de passe ne correspondent pas
+              </small>
+            )
+          )}
           {hasError ? <SubmitOnError /> : <Submit />}
         </form>
         <small className="text-zinc-400 w-full text-center block mt-7">
